@@ -1,0 +1,20 @@
+{
+  "name": "support-responsable-formation",
+  "version": 2,
+  "public": false,
+  "env": {
+    "AUTH_CODE": "@auth_code"
+  },
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
