@@ -277,6 +277,136 @@ section{padding:80px 0}
 .footer-belt{display:flex;justify-content:center;gap:5px;margin-top:20px}
 .footer-belt-color{width:20px;height:5px;border-radius:3px}
 
+/* RUBAN DETAILLE OVERLAY */
+.ruban-detail-btn{display:inline-flex;align-items:center;gap:10px;margin-top:32px;padding:14px 28px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);font-size:.95rem;font-weight:800;border:none;border-radius:var(--radius-md);cursor:pointer;transition:all var(--transition);box-shadow:0 4px 15px rgba(200,169,81,.35);letter-spacing:.3px}
+.ruban-detail-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(200,169,81,.45)}
+.ruban-detail-btn .btn-icon{font-size:1.2rem}
+
+/* Overlay fullscreen */
+.rd-overlay{position:fixed;inset:0;z-index:2000;background:var(--white);display:none;flex-direction:column;overflow:hidden}
+.rd-overlay.open{display:flex}
+.rd-overlay *{box-sizing:border-box}
+
+/* Header fixe overlay */
+.rd-header{background:var(--navy);color:var(--white);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-shrink:0;border-bottom:3px solid var(--gold)}
+.rd-header-left{display:flex;align-items:center;gap:16px}
+.rd-header h2{font-size:1.15rem;font-weight:800;margin:0}
+.rd-header h2 span{color:var(--gold)}
+.rd-progress{display:flex;align-items:center;gap:10px}
+.rd-progress-bar{width:200px;height:8px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden}
+.rd-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:4px;transition:width .5s ease}
+.rd-progress-text{font-size:.75rem;font-weight:700;color:var(--gold)}
+.rd-close{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:var(--white);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:all var(--transition);flex-shrink:0}
+.rd-close:hover{background:var(--red);border-color:var(--red)}
+
+/* Legende */
+.rd-legend{background:var(--gray-bg);padding:10px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;border-bottom:1px solid var(--gray-200);flex-shrink:0}
+.rd-legend-item{display:flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600;color:var(--gray-800)}
+.rd-legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+.rd-legend-dot.l-bc01{background:var(--blue)}
+.rd-legend-dot.l-bc02{background:var(--gold)}
+.rd-legend-dot.l-bc03{background:var(--red)}
+.rd-legend-dot.l-alt{background:var(--green)}
+.rd-legend-dot.l-certif{background:linear-gradient(135deg,var(--gold),var(--red));border:2px solid var(--navy)}
+.rd-legend-icons{display:flex;gap:14px;margin-left:auto}
+.rd-legend-icons span{font-size:.72rem;color:var(--gray-600)}
+
+/* Onglets periodes */
+.rd-tabs{display:flex;gap:0;background:var(--white);border-bottom:2px solid var(--gray-100);flex-shrink:0;padding:0 24px}
+.rd-tab{padding:12px 24px;font-size:.85rem;font-weight:700;color:var(--gray-600);background:none;border:none;cursor:pointer;position:relative;transition:all var(--transition);white-space:nowrap}
+.rd-tab::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:3px;background:transparent;border-radius:3px 3px 0 0;transition:background var(--transition)}
+.rd-tab:hover{color:var(--navy)}
+.rd-tab.active{color:var(--navy)}
+.rd-tab.active::after{background:var(--blue)}
+.rd-tab .tab-badge{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:11px;font-size:.68rem;font-weight:700;margin-left:6px;background:var(--gray-100);color:var(--gray-600)}
+.rd-tab.active .tab-badge{background:var(--blue);color:var(--white)}
+.rd-tab--p1.active::after{background:#003DA5}
+.rd-tab--p2.active::after{background:#0D7C5F}
+.rd-tab--p3.active::after{background:#E4002B}
+.rd-tab--p4.active::after{background:#C8A951}
+
+/* Zone de contenu scrollable */
+.rd-content{flex:1;overflow-y:auto;padding:24px;background:var(--gray-bg)}
+.rd-period{display:none}
+.rd-period.active{display:block}
+.rd-period-header{margin-bottom:20px;padding:16px 20px;border-radius:var(--radius-md);color:var(--white);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.rd-period-header.ph-p1{background:linear-gradient(135deg,#002D7A,#003DA5)}
+.rd-period-header.ph-p2{background:linear-gradient(135deg,#095C46,#0D7C5F)}
+.rd-period-header.ph-p3{background:linear-gradient(135deg,#B80023,#E4002B)}
+.rd-period-header.ph-p4{background:linear-gradient(135deg,#A08838,#C8A951)}
+.rd-period-header h3{font-size:1.1rem;font-weight:800;margin:0}
+.rd-period-header .ph-meta{font-size:.8rem;opacity:.8}
+
+/* Carte semaine */
+.rd-week{background:var(--white);border-radius:var(--radius-md);margin-bottom:12px;box-shadow:var(--shadow-sm);border:1px solid var(--gray-100);overflow:hidden;transition:box-shadow var(--transition)}
+.rd-week:hover{box-shadow:var(--shadow-md)}
+.rd-week.milestone{border:2px solid var(--gold);box-shadow:0 4px 15px rgba(200,169,81,.2)}
+.rd-week.milestone .rd-week-header{background:linear-gradient(135deg,rgba(200,169,81,.12),rgba(200,169,81,.05))}
+.rd-week.certif-week{border:2px solid var(--red);box-shadow:0 4px 15px rgba(228,0,43,.15)}
+.rd-week.certif-week .rd-week-header{background:linear-gradient(135deg,rgba(228,0,43,.08),rgba(228,0,43,.03))}
+
+.rd-week-header{display:flex;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid var(--gray-100)}
+.rd-week-num{min-width:52px;height:36px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:900;color:var(--white);background:var(--navy);flex-shrink:0}
+.rd-week.milestone .rd-week-num{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy)}
+.rd-week.certif-week .rd-week-num{background:linear-gradient(135deg,var(--red),var(--red-light))}
+.rd-week-month{font-size:.78rem;font-weight:700;color:var(--gray-600);min-width:80px}
+.rd-week-title{font-size:.88rem;font-weight:700;color:var(--navy);flex:1}
+.rd-week-tags{display:flex;gap:4px;flex-wrap:wrap}
+.rd-week-tag{padding:2px 8px;border-radius:10px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.rd-week-tag.t-bc01{background:rgba(0,61,165,.1);color:var(--blue)}
+.rd-week-tag.t-bc02{background:rgba(200,169,81,.15);color:#9A7D2E}
+.rd-week-tag.t-bc03{background:rgba(228,0,43,.08);color:var(--red)}
+.rd-week-tag.t-alt{background:rgba(13,124,95,.1);color:var(--green)}
+.rd-week-tag.t-certif{background:var(--red);color:var(--white)}
+
+/* Grille 4 colonnes dans la carte */
+.rd-week-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.rd-week-col{padding:12px 14px;border-right:1px solid var(--gray-100)}
+.rd-week-col:last-child{border-right:none}
+.rd-week-col-title{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.rd-week-col-title.ct-bc01{color:var(--blue)}
+.rd-week-col-title.ct-bc02{color:var(--gold)}
+.rd-week-col-title.ct-bc03{color:var(--red)}
+.rd-week-col-title.ct-alt{color:var(--green)}
+.rd-week-col-title::before{content:'';width:4px;height:14px;border-radius:2px}
+.rd-week-col-title.ct-bc01::before{background:var(--blue)}
+.rd-week-col-title.ct-bc02::before{background:var(--gold)}
+.rd-week-col-title.ct-bc03::before{background:var(--red)}
+.rd-week-col-title.ct-alt::before{background:var(--green)}
+
+.rd-seq{margin-bottom:8px}
+.rd-seq:last-child{margin-bottom:0}
+.rd-seq-code{font-size:.68rem;font-weight:700;color:var(--gray-600);margin-bottom:2px}
+.rd-seq-text{font-size:.8rem;line-height:1.45;color:var(--gray-800)}
+.rd-seq-livrable{display:inline-flex;align-items:center;gap:4px;margin-top:3px;font-size:.72rem;font-weight:600;color:var(--green);background:rgba(13,124,95,.06);padding:2px 8px;border-radius:10px}
+.rd-seq-empty{font-size:.78rem;color:var(--gray-300);font-style:italic}
+
+/* Milestone banner */
+.rd-milestone-banner{padding:10px 16px;background:linear-gradient(135deg,rgba(200,169,81,.1),rgba(200,169,81,.03));border-top:1px solid rgba(200,169,81,.2);font-size:.82rem;font-weight:700;color:#9A7D2E;display:flex;align-items:center;gap:8px}
+.rd-certif-banner{padding:10px 16px;background:linear-gradient(135deg,rgba(228,0,43,.06),rgba(228,0,43,.02));border-top:1px solid rgba(228,0,43,.15);font-size:.82rem;font-weight:700;color:var(--red);display:flex;align-items:center;gap:8px}
+
+/* Responsive overlay */
+@media(max-width:900px){
+  .rd-week-grid{grid-template-columns:1fr 1fr}
+  .rd-week-col:nth-child(2){border-right:none}
+  .rd-week-col:nth-child(3),.rd-week-col:nth-child(4){border-top:1px solid var(--gray-100)}
+  .rd-tabs{overflow-x:auto}
+  .rd-header h2{font-size:.95rem}
+  .rd-progress-bar{width:120px}
+}
+@media(max-width:600px){
+  .rd-week-grid{grid-template-columns:1fr}
+  .rd-week-col{border-right:none;border-bottom:1px solid var(--gray-100)}
+  .rd-week-col:last-child{border-bottom:none}
+  .rd-header{flex-wrap:wrap;gap:10px;padding:10px 16px}
+  .rd-legend{padding:8px 16px;gap:12px}
+  .rd-legend-icons{margin-left:0;width:100%}
+  .rd-tabs{padding:0 12px}
+  .rd-tab{padding:10px 14px;font-size:.78rem}
+  .rd-content{padding:12px}
+  .rd-week-header{flex-wrap:wrap;gap:8px}
+}
+
 /* PRINT */
 @media print{
   .nav,.nav-mobile{display:none!important}
@@ -288,23 +418,34 @@ section{padding:80px 0}
   .bar-fill{width:var(--target-width)!important}
   .epreuve-card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
   .epreuves-section,.epreuves-section.certif-bg{background:white}
+  .ruban-detail-btn{display:none!important}
+  .rd-overlay{position:static!important;display:block!important;overflow:visible!important}
+  .rd-overlay .rd-header{position:static;break-after:avoid}
+  .rd-overlay .rd-legend{break-after:avoid}
+  .rd-overlay .rd-tabs{display:none}
+  .rd-overlay .rd-content{overflow:visible;padding:0}
+  .rd-overlay .rd-period{display:block!important;break-before:page}
+  .rd-overlay .rd-period:first-child{break-before:auto}
+  .rd-overlay .rd-week{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
+  .rd-overlay .rd-close{display:none}
+  .rd-overlay .rd-week-grid{grid-template-columns:repeat(4,1fr)!important}
 }
 </style>
 
 <style>
-/* AUTH LAYER */
-.auth-page { display:flex; align-items:center; justify-content:center; min-height:100vh; background:linear-gradient(135deg,#003DA5,#002D7A); position:fixed; inset:0; z-index:9999; }
-.auth-container { background:white; border-radius:12px; padding:48px; box-shadow:0 20px 60px rgba(0,0,0,.15); max-width:420px; width:90%; text-align:center; }
-.auth-logo { width:60px; height:60px; background:linear-gradient(135deg,#003DA5,#002D7A); border-radius:12px; display:flex; align-items:center; justify-content:center; color:white; font-weight:900; font-size:28px; margin:0 auto 24px; }
-.auth-title { font-size:1.8rem; font-weight:800; color:#1a1a2e; margin-bottom:12px; }
-.auth-subtitle { font-size:.95rem; color:#5a6577; margin-bottom:32px; }
-.auth-input { padding:14px 16px; border:2px solid #d1d7e0; border-radius:8px; font-size:1rem; font-family:monospace; letter-spacing:2px; width:100%; transition:.3s; }
-.auth-input:focus { outline:none; border-color:#003DA5; box-shadow:0 0 0 3px rgba(0,61,165,.08); }
-.auth-button { padding:14px 24px; background:#003DA5; color:white; border:none; border-radius:8px; font-size:1rem; font-weight:600; cursor:pointer; width:100%; margin-top:8px; transition:.3s; }
-.auth-button:hover { background:#002D7A; }
-.auth-error { padding:12px 16px; background:#fff5f5; color:#c53030; border-radius:8px; display:none; margin-bottom:16px; font-size:.9rem; }
-.auth-error.show { display:block; }
-.auth-footer { margin-top:24px; font-size:.75rem; color:#b0b8c4; }
+/* AUTH OVERLAY */
+.auth-page{display:flex;align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(135deg,#003DA5,#002D7A);position:fixed;inset:0;z-index:9999;}
+.auth-container{background:white;border-radius:12px;padding:48px;box-shadow:0 20px 60px rgba(0,0,0,.15);max-width:420px;width:90%;text-align:center;}
+.auth-logo{width:60px;height:60px;background:linear-gradient(135deg,#003DA5,#002D7A);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:28px;margin:0 auto 24px;}
+.auth-title{font-size:1.8rem;font-weight:800;color:#1a1a2e;margin-bottom:12px;}
+.auth-subtitle{font-size:.95rem;color:#5a6577;margin-bottom:32px;}
+.auth-input{padding:14px 16px;border:2px solid #d1d7e0;border-radius:8px;font-size:1rem;font-family:monospace;letter-spacing:2px;width:100%;transition:.3s;}
+.auth-input:focus{outline:none;border-color:#003DA5;box-shadow:0 0 0 3px rgba(0,61,165,.08);}
+.auth-button{padding:14px 24px;background:#003DA5;color:white;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;width:100%;margin-top:8px;transition:.3s;}
+.auth-button:hover{background:#002D7A;}
+.auth-error{padding:12px 16px;background:#fff5f5;color:#c53030;border-radius:8px;display:none;margin-bottom:16px;font-size:.9rem;}
+.auth-error.show{display:block;}
+.auth-footer{margin-top:24px;font-size:.75rem;color:#b0b8c4;}
 </style>
 </head>
 <body>
@@ -320,6 +461,7 @@ section{padding:80px 0}
     <p class="auth-footer">&#x1F512; Connexion s&eacute;curis&eacute;e</p>
   </div>
 </div>
+
 
 <!-- NAV -->
 <nav class="nav" role="navigation" aria-label="Navigation principale">
@@ -523,8 +665,1060 @@ section{padding:80px 0}
       <div class="ruban-stat"><div class="ruban-stat-value"><span>1 100</span>h</div><div class="ruban-stat-label">Volume total</div></div>
       <div class="ruban-stat"><div class="ruban-stat-value"><span>4</span></div><div class="ruban-stat-label">Périodes</div></div>
     </div>
+
+    <div style="text-align:center;margin-top:32px">
+      <button class="ruban-detail-btn" onclick="openRubanDetail()">
+        <span class="btn-icon">&#128197;</span> Voir le ruban detaille &mdash; 60 semaines
+      </button>
+    </div>
   </div>
 </section>
+
+<!-- OVERLAY RUBAN DETAILLE 60 SEMAINES -->
+<div class="rd-overlay" id="rdOverlay">
+  <div class="rd-header">
+    <div class="rd-header-left">
+      <h2>Ruban pedagogique <span>60 semaines</span></h2>
+      <div class="rd-progress">
+        <div class="rd-progress-bar"><div class="rd-progress-fill" id="rdProgressFill" style="width:0%"></div></div>
+        <span class="rd-progress-text" id="rdProgressText">P1</span>
+      </div>
+    </div>
+    <button class="rd-close" onclick="closeRubanDetail()" title="Fermer">&#10005;</button>
+  </div>
+
+  <div class="rd-legend">
+    <div class="rd-legend-item"><div class="rd-legend-dot l-bc01"></div>BC01 Projet</div>
+    <div class="rd-legend-item"><div class="rd-legend-dot l-bc02"></div>BC02 Communication</div>
+    <div class="rd-legend-item"><div class="rd-legend-dot l-bc03"></div>BC03 Technique/Pedagogie</div>
+    <div class="rd-legend-item"><div class="rd-legend-dot l-alt"></div>Alternance</div>
+    <div class="rd-legend-item"><div class="rd-legend-dot l-certif"></div>Jalon / Certification</div>
+    <div class="rd-legend-icons">
+      <span>&#128221; Livrable</span>
+      <span>&#127919; Evaluation</span>
+      <span>&#129355; Tatami</span>
+      <span>&#128187; Digital</span>
+      <span>&#128203; Theorie</span>
+    </div>
+  </div>
+
+  <div class="rd-tabs">
+    <button class="rd-tab rd-tab--p1 active" onclick="switchPeriod('p1',this)">P1 Fondations <span class="tab-badge">S1-S13</span></button>
+    <button class="rd-tab rd-tab--p2" onclick="switchPeriod('p2',this)">P2 Construction <span class="tab-badge">S14-S31</span></button>
+    <button class="rd-tab rd-tab--p3" onclick="switchPeriod('p3',this)">P3 Approfondissement <span class="tab-badge">S32-S48</span></button>
+    <button class="rd-tab rd-tab--p4" onclick="switchPeriod('p4',this)">P4 Certification <span class="tab-badge">S49-S60</span></button>
+  </div>
+
+  <div class="rd-content" id="rdContent">
+
+    <!-- ===================== P1 FONDATIONS ===================== -->
+    <div class="rd-period active" id="period-p1">
+      <div class="rd-period-header ph-p1">
+        <h3>P1 — Fondations (M1-M3, Semaines 1 a 13)</h3>
+        <span class="ph-meta">Sept. &rarr; Nov. | 13 semaines</span>
+      </div>
+
+      <!-- S1 -->
+      <div class="rd-week milestone">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S1</div>
+          <div class="rd-week-month">M1 — Sept.</div>
+          <div class="rd-week-title">Accueil et positionnement initial</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc03">BC03</span><span class="rd-week-tag t-alt">ALT</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Accueil administratif, presentation du parcours RNCP40424</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Test technique tatami (ukemi, nage-waza fondamental)</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Observation en structure (12h/sem min)</div></div></div>
+        </div>
+        <div class="rd-milestone-banner">&#127919; Positionnement initial : QCM H5P + entretien individuel + test technique tatami</div>
+      </div>
+
+      <!-- S2 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S2</div>
+          <div class="rd-week-month">M1 — Sept.</div>
+          <div class="rd-week-title">Cadre legal de l'educateur sportif</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-code">S1.1</div><div class="rd-seq-text">&#128203; Cadre legal de l'educateur sportif : L.212-1, carte professionnelle, assurance RC</div><div class="rd-seq-livrable">&#128221; Fiche synthese cadre legal</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Securite, ukemi (chutes), positionnement pedagogique de base</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Observation en structure (12h/sem min)</div></div></div>
+        </div>
+      </div>
+
+      <!-- S3 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S3</div>
+          <div class="rd-week-month">M1 — Sept.</div>
+          <div class="rd-week-title">Structure BPJEPS RNCP40424</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-code">S1.2</div><div class="rd-seq-text">&#128203; BPJEPS RNCP40424 : structure, referentiels (3 BC, 23 competences)</div><div class="rd-seq-livrable">&#128221; Carte mentale architecture RNCP</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Ukemi avances, bases nage-waza (O-goshi, De-ashi-barai)</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Observation en structure (12h/sem min)</div></div></div>
+        </div>
+      </div>
+
+      <!-- S4 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S4</div>
+          <div class="rd-week-month">M1 — Sept.</div>
+          <div class="rd-week-title">Environnement territorial du sport</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-code">S1.3</div><div class="rd-seq-text">&#128203; Environnement territorial du sport : acteurs locaux, DRAJES, FFJDA</div><div class="rd-seq-livrable">&#128221; Cartographie acteurs locaux</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S4.1</div><div class="rd-seq-text">&#128203; Bases de la pedagogie sportive — approches didactiques</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Observation en structure (12h/sem min)</div></div></div>
+        </div>
+      </div>
+
+      <!-- S5 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S5</div>
+          <div class="rd-week-month">M2 — Oct.</div>
+          <div class="rd-week-title">Connaissance des publics et besoins</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-code">S1.4</div><div class="rd-seq-text">&#128203; Connaissance des publics et besoins (dont handicap, PSH)</div><div class="rd-seq-livrable">&#128221; Grille d'analyse des publics</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Pedagogie eveil judo, publics enfants 4-7 ans</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Premiere observation guidee en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S6 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S6</div>
+          <div class="rd-week-month">M2 — Oct.</div>
+          <div class="rd-week-title">Structures du judo</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-code">S1.5</div><div class="rd-seq-text">&#128203; Structures du judo : club, comite, ligue, federation FFJDA</div><div class="rd-seq-livrable">&#128221; Organigramme federal</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Eveil judo : situations ludiques, jeux d'opposition</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Observation guidee en structure (40% du temps)</div></div></div>
+        </div>
+      </div>
+
+      <!-- S7 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S7</div>
+          <div class="rd-week-month">M2 — Oct.</div>
+          <div class="rd-week-title">Methodologie de projet : diagnostic</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-code">S2.1</div><div class="rd-seq-text">&#128203; Methodologie de projet : de l'idee au diagnostic territorial</div><div class="rd-seq-livrable">&#128221; Trame diagnostic territorial</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Initiation judo 8-12 ans — approche par situations</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Observation (40% du temps)</div></div></div>
+        </div>
+      </div>
+
+      <!-- S8 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S8</div>
+          <div class="rd-week-month">M2 — Oct.</div>
+          <div class="rd-week-title">Planification et gestion de ressources</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-code">S2.2</div><div class="rd-seq-text">&#128203; Planification et gestion de ressources (humaines, materielles, financieres)</div><div class="rd-seq-livrable">&#128221; Retro-planning projet</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Initiation judo 8-12 ans — cycle de 6 seances (amorce)</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Premiere observation en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S9 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S9</div>
+          <div class="rd-week-month">M3 — Nov.</div>
+          <div class="rd-week-title">Communication de projet et impact ecologique</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc02">BC02</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-code">S2.3</div><div class="rd-seq-text">&#128203; Communication de projet et impact ecologique (demarche RSO)</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Amorce BC02 — introduction communication sportive</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Pedagogie initiation — progression 6 seances</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">40% du temps en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S10 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S10</div>
+          <div class="rd-week-month">M3 — Nov.</div>
+          <div class="rd-week-title">Fondamentaux communication sportive</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc02">BC02</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Diagnostic territorial : collecte donnees terrain</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-code">S3.1</div><div class="rd-seq-text">&#128203; Fondamentaux de la communication sportive</div><div class="rd-seq-livrable">&#128221; Analyse supports existants</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Initiation 8-12 ans — suite du cycle</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">40% du temps en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S11 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S11</div>
+          <div class="rd-week-month">M3 — Nov.</div>
+          <div class="rd-week-title">Eveil judo 4-7 ans — micro-enseignement filme</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Preparation presentation diagnostic territorial</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">&#128187; Outils de presentation orale</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S4.2</div><div class="rd-seq-text">&#129355; Eveil judo 4-7 ans — micro-enseignement filme (15 min)</div><div class="rd-seq-livrable">&#128221; Video micro-enseignement + auto-analyse</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">40% du temps en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S12 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S12</div>
+          <div class="rd-week-month">M3 — Nov.</div>
+          <div class="rd-week-title">Initiation judo 8-12 ans — cycle 6 seances</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Finalisation diagnostic territorial (oral)</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Preparation supports visuels</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S4.3</div><div class="rd-seq-text">&#129355; Initiation judo 8-12 ans : conception et conduite cycle complet de 6 seances</div><div class="rd-seq-livrable">&#128221; Dossier cycle 6 seances 8-12 ans</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">40% du temps en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S13 EF1 -->
+      <div class="rd-week milestone">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S13</div>
+          <div class="rd-week-month">M3 — Nov.</div>
+          <div class="rd-week-title">&#9670; EVALUATION FORMATIVE 1</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">&#127919; Presentation orale diagnostic territorial (C.1.1.1, C.1.1.2)</div><div class="rd-seq-livrable">&#128221; Oral diagnostic + support visuel</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#127919; Micro-enseignement filme + quiz H5P (C.3.2.1, C.3.2.4)</div><div class="rd-seq-livrable">&#128221; Grille evaluation micro-enseignement</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">40% du temps en structure</div></div></div>
+        </div>
+        <div class="rd-milestone-banner">&#127919; EF1 — Diagnostic territorial (BC01) + Micro-enseignement filme + Quiz H5P (BC03)</div>
+      </div>
+
+    </div><!-- fin P1 -->
+
+    <!-- ===================== P2 CONSTRUCTION ===================== -->
+    <div class="rd-period" id="period-p2">
+      <div class="rd-period-header ph-p2">
+        <h3>P2 — Construction (M4-M7, Semaines 14 a 31)</h3>
+        <span class="ph-meta">Dec. &rarr; Mars | 18 semaines</span>
+      </div>
+
+      <!-- S14 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S14</div>
+          <div class="rd-week-month">M4 — Dec.</div>
+          <div class="rd-week-title">Mise en oeuvre et pilotage du projet</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-code">S2.4</div><div class="rd-seq-text">&#128203; Mise en oeuvre et pilotage du projet d'animation</div><div class="rd-seq-livrable">&#128221; Fiche de suivi projet</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Conception de cycles d'enseignement</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Debut du projet BC01 en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S15 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S15</div>
+          <div class="rd-week-month">M4 — Dec.</div>
+          <div class="rd-week-title">Outils numeriques de communication</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc02">BC02</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-code">S3.2</div><div class="rd-seq-text">&#128187; Outils numeriques : Canva, reseaux sociaux, identite visuelle club</div><div class="rd-seq-livrable">&#128221; Maquette affiche evenement</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Cycles d'enseignement — conception</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Projet BC01 en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S16 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S16</div>
+          <div class="rd-week-month">M4 — Dec.</div>
+          <div class="rd-week-title">Apprentissage technique ado/adultes</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Travaux pratiques outils numeriques</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S4.4</div><div class="rd-seq-text">&#129355; Apprentissage technique ado/adultes : nage-waza, ne-waza (cycle 6 seances)</div><div class="rd-seq-livrable">&#128221; Fiche seance type ado/adultes</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Projet BC01 en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S17 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S17</div>
+          <div class="rd-week-month">M4 — Dec.</div>
+          <div class="rd-week-title">Gestion de groupe et dynamique de seance</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Travaux pratiques communication</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S4.5</div><div class="rd-seq-text">&#129355; Gestion de groupe et dynamique de seance : regles de vie, transitions, securite active</div><div class="rd-seq-livrable">&#128221; Grille auto-evaluation gestion de groupe</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Projet BC01 en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S18 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S18</div>
+          <div class="rd-week-month">M5 — Jan.</div>
+          <div class="rd-week-title">Bilan et analyse reflexive</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-code">S2.5</div><div class="rd-seq-text">&#128203; Bilan et analyse reflexive : indicateurs, PDCA, ajustements</div><div class="rd-seq-livrable">&#128221; Grille d'analyse reflexive</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Travaux pratiques contenus promo</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Conduite de seances en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Rendu intermediaire projet BC01</div></div></div>
+        </div>
+      </div>
+
+      <!-- S19 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S19</div>
+          <div class="rd-week-month">M5 — Jan.</div>
+          <div class="rd-week-title">Gestion d'equipe et travail collaboratif</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-code">S2.6</div><div class="rd-seq-text">&#128203; Gestion d'equipe et travail collaboratif : delegation, coordination</div><div class="rd-seq-livrable">&#128221; Plan de coordination equipe</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Contenus promotionnels : creation</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Conduite de seances en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">50% du temps en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S20 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S20</div>
+          <div class="rd-week-month">M5 — Jan.</div>
+          <div class="rd-week-title">Communication accessible et inclusive</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc02">BC02</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi budget et planification</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-code">S3.3</div><div class="rd-seq-text">&#128203; Communication accessible et inclusive : FALC, pictogrammes, LSF</div><div class="rd-seq-livrable">&#128221; Support de communication FALC</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Conduite de seances — autonomie progressive</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">50% du temps en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S21 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S21</div>
+          <div class="rd-week-month">M5 — Jan.</div>
+          <div class="rd-week-title">Evaluation des apprentissages en judo</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Supports accessibles : travaux pratiques</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S4.6</div><div class="rd-seq-text">&#129355; Evaluation des apprentissages en judo : grilles, criteres, progression ceintures</div><div class="rd-seq-livrable">&#128221; Grille evaluation apprentissages</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">50% du temps en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S22 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S22</div>
+          <div class="rd-week-month">M5 — Jan.</div>
+          <div class="rd-week-title">Conduite en securite et reperage des difficultes</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Contenus promotionnels : finalisation</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S4.7</div><div class="rd-seq-text">&#129355; Conduite en securite et reperage des difficultes : protocole incident, adaptation</div><div class="rd-seq-livrable">&#128221; Protocole securite seance judo</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Rendu intermediaire projet BC01</div></div></div>
+        </div>
+      </div>
+
+      <!-- S23 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S23</div>
+          <div class="rd-week-month">M6 — Fev.</div>
+          <div class="rd-week-title">Cadre legal et ethique de l'inclusion</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Mise en oeuvre projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Communication accessible — suite</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S5.1</div><div class="rd-seq-text">&#128203; Cadre legal et ethique de l'inclusion : loi 2005, droits PSH, accessibilite</div><div class="rd-seq-livrable">&#128221; Fiche synthese cadre inclusion</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">50% du temps en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S24 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S24</div>
+          <div class="rd-week-month">M6 — Fev.</div>
+          <div class="rd-week-title">Handicap moteur — adaptation des situations</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Mise en oeuvre projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Maquette supports de communication</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S5.2</div><div class="rd-seq-text">&#129355; Handicap moteur : adaptation des situations sur tatami, partenariat</div><div class="rd-seq-livrable">&#128221; Fiche adaptation handicap moteur</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">50% du temps en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S25 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S25</div>
+          <div class="rd-week-month">M6 — Fev.</div>
+          <div class="rd-week-title">Handicap sensoriel — animation adaptee</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Mise en oeuvre projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Maquette supports de communication (suite)</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S5.3</div><div class="rd-seq-text">&#129355; Handicap sensoriel : animation sans consigne verbale, guidage tactile</div><div class="rd-seq-livrable">&#128221; Scenario seance non-verbale</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">50% du temps en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S26 EF2 -->
+      <div class="rd-week milestone">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S26</div>
+          <div class="rd-week-month">M6 — Fev.</div>
+          <div class="rd-week-title">&#9670; EVALUATION FORMATIVE 2 — Mi-parcours</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc02">BC02</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">&#127919; Rendu intermediaire projet animation (C.1.2.1, C.1.2.2, C.1.3.1)</div><div class="rd-seq-livrable">&#128221; Dossier intermediaire projet</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">&#127919; Maquette supports communication (C.2.1.1, C.2.1.2)</div><div class="rd-seq-livrable">&#128221; Maquettes 2 supports</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#127919; Conduite seance en structure — grille tuteur (C.3.2.1, C.3.2.2, C.3.2.4)</div><div class="rd-seq-livrable">&#128221; Grille observation tuteur</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">50% du temps — point etape mi-parcours</div></div></div>
+        </div>
+        <div class="rd-milestone-banner">&#127919; EF2 — Rendu intermediaire projet (BC01) + Maquettes comm (BC02) + Conduite seance grille tuteur (BC03)</div>
+      </div>
+
+      <!-- S27 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S27</div>
+          <div class="rd-week-month">M7 — Mars</div>
+          <div class="rd-week-title">Handicap cognitif ou psychique</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi et pilotage projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Presentation orale — techniques</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S5.4</div><div class="rd-seq-text">&#128203; Handicap cognitif ou psychique : TSA, trisomie — adaptation pedagogique</div><div class="rd-seq-livrable">&#128221; Fiche adaptation handicap cognitif</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">50% du temps — conduite seances</div></div></div>
+        </div>
+      </div>
+
+      <!-- S28 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S28</div>
+          <div class="rd-week-month">M7 — Mars</div>
+          <div class="rd-week-title">Judo adapte et para-judo</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi et pilotage projet</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Presentation orale — posture pro</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S5.5</div><div class="rd-seq-text">&#129355; Judo adapte et para-judo : classification, reglement, situations adaptees</div><div class="rd-seq-livrable">&#128221; Fiche seance para-judo</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">50% du temps — conduite seances</div></div></div>
+        </div>
+      </div>
+
+      <!-- S29 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S29</div>
+          <div class="rd-week-month">M7 — Mars</div>
+          <div class="rd-week-title">Integration inclusion comme fil rouge</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi et pilotage projet</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Travaux pratiques supports comm</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S5.6</div><div class="rd-seq-text">&#129355; Integration de l'inclusion comme fil rouge : mixite, adaptation continue</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Preparation 3e dan UV1</div></div></div>
+        </div>
+      </div>
+
+      <!-- S30 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S30</div>
+          <div class="rd-week-month">M7 — Mars</div>
+          <div class="rd-week-title">Analyse biomecanique techniques fondamentales</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi pilotage projet</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Travaux pratiques supports comm</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S6.1</div><div class="rd-seq-text">&#129355; Analyse biomecanique techniques fondamentales (Gokyo) : kuzushi, tsukuri, kake</div><div class="rd-seq-livrable">&#128221; Fiche analyse biomecanique</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Preparation 3e dan UV1</div></div></div>
+        </div>
+      </div>
+
+      <!-- S31 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S31</div>
+          <div class="rd-week-month">M7 — Mars</div>
+          <div class="rd-week-title">Outils numeriques gestion de projet + PDCA</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-code">S2.7 + S2.8</div><div class="rd-seq-text">&#128187; Outils numeriques de gestion de projet (Trello, Notion) + Methode PDCA</div><div class="rd-seq-livrable">&#128221; Tableau de bord projet numerique</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Travaux pratiques supports comm</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Entrainement technique 3e dan</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Preparation 3e dan UV1</div></div></div>
+        </div>
+      </div>
+
+    </div><!-- fin P2 -->
+
+    <!-- ===================== P3 APPROFONDISSEMENT ===================== -->
+    <div class="rd-period" id="period-p3">
+      <div class="rd-period-header ph-p3">
+        <h3>P3 — Approfondissement (M8-M11, Semaines 32 a 48)</h3>
+        <span class="ph-meta">Avr. &rarr; Juil. | 17 semaines</span>
+      </div>
+
+      <!-- S32 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S32</div>
+          <div class="rd-week-month">M8 — Avr.</div>
+          <div class="rd-week-title">Nage-waza programme 3e dan UV1</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi et pilotage projet</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Finalisation supports communication</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S6.2</div><div class="rd-seq-text">&#129355; Nage-waza programme 3e dan UV1 : techniques imposees et libres</div><div class="rd-seq-livrable">&#128221; Carnet technique 3e dan UV1</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Stage technique FFJDA (recommande)</div></div></div>
+        </div>
+      </div>
+
+      <!-- S33 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S33</div>
+          <div class="rd-week-month">M8 — Avr.</div>
+          <div class="rd-week-title">Ne-waza programme 3e dan UV2</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Finalisation supports communication</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S6.3</div><div class="rd-seq-text">&#129355; Ne-waza programme 3e dan UV2 : osae-komi, shime-waza, kansetsu-waza</div><div class="rd-seq-livrable">&#128221; Carnet technique 3e dan UV2</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Stage technique FFJDA (recommande)</div></div></div>
+        </div>
+      </div>
+
+      <!-- S34 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S34</div>
+          <div class="rd-week-month">M8 — Avr.</div>
+          <div class="rd-week-title">Kata (Nage-no-kata, Katame-no-kata)</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Finalisation supports communication</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S6.4</div><div class="rd-seq-text">&#129355; Kata : Nage-no-kata (3 premieres series), Katame-no-kata</div><div class="rd-seq-livrable">&#128221; Video kata + grille auto-eval</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">60% du temps — conduite autonome</div></div></div>
+        </div>
+      </div>
+
+      <!-- S35 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S35</div>
+          <div class="rd-week-month">M8 — Avr.</div>
+          <div class="rd-week-title">Valorisation action + Prepa physique</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc02">BC02</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-code">S3.4</div><div class="rd-seq-text">&#128203; Valorisation d'une action : methode et supports (bilan, reporting)</div><div class="rd-seq-livrable">&#128221; Support valorisation action 1</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S6.5</div><div class="rd-seq-text">&#129355; Preparation physique specifique judo : PPG, PPS, planification</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">60% du temps — conduite autonome</div></div></div>
+        </div>
+      </div>
+
+      <!-- S36 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S36</div>
+          <div class="rd-week-month">M9 — Mai</div>
+          <div class="rd-week-title">Strategies passage de grade 3e dan</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Travaux pratiques action 1</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S6.6</div><div class="rd-seq-text">&#129355; Strategies passage de grade (3e dan UV1+UV2) : simulation examen CSDGE</div><div class="rd-seq-livrable">&#128221; Plan de preparation examen</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">60% du temps — conduite autonome</div></div></div>
+        </div>
+      </div>
+
+      <!-- S37 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S37</div>
+          <div class="rd-week-month">M9 — Mai</div>
+          <div class="rd-week-title">Reglementation encadrement + Prevention blessures</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Travaux pratiques action 1</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S7.1 + S7.2</div><div class="rd-seq-text">&#128203; Reglementation encadrement judo + Prevention blessures (strapping, echauffement)</div><div class="rd-seq-livrable">&#128221; Fiche protocole prevention</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">60% du temps — conduite autonome</div></div></div>
+        </div>
+      </div>
+
+      <!-- S38 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S38</div>
+          <div class="rd-week-month">M9 — Mai</div>
+          <div class="rd-week-title">Conception cycles complets (2 x 6 seances)</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Action 2 — conception</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S4.8</div><div class="rd-seq-text">&#129355; Conception de cycles complets : 2 cycles de 6 seances (publics differents)</div><div class="rd-seq-livrable">&#128221; 2 dossiers cycles 6 seances</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">60% du temps — conduite autonome</div></div></div>
+        </div>
+      </div>
+
+      <!-- S39 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S39</div>
+          <div class="rd-week-month">M9 — Mai</div>
+          <div class="rd-week-title">Arbitrage et reglementation sportive</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Suivi projet en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Action 2 — mise en oeuvre</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S7.3</div><div class="rd-seq-text">&#129355; Arbitrage et reglementation sportive : code arbitrage, mise en situation</div><div class="rd-seq-livrable">&#128221; Fiche arbitrage + quiz</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">60% du temps — conduite autonome</div></div></div>
+        </div>
+      </div>
+
+      <!-- S40 EF3 + 3e dan -->
+      <div class="rd-week milestone">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S40</div>
+          <div class="rd-week-month">M9 — Mai</div>
+          <div class="rd-week-title">&#9670; EF3 + BLANC BC03 + SESSION 3e DAN CSDGE</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Bilan intermediaire projet</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Documentation action 2</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#127919; Simulation complete : conduite seance 45min + entretien 30min (grille certificative a blanc)</div><div class="rd-seq-livrable">&#128221; Grille blanc BC03 + retours</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Session 3e dan CSDGE FFJDA</div></div></div>
+        </div>
+        <div class="rd-milestone-banner">&#127919; EF3 Blanc BC03 — Simulation certificative complete + Session 3e dan CSDGE UV1+UV2</div>
+      </div>
+
+      <!-- S41 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S41</div>
+          <div class="rd-week-month">M10 — Juin</div>
+          <div class="rd-week-title">Responsabilite juridique educateur sportif</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Bilan projet BC01 — analyse reflexive</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Documentation action 2</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S7.4</div><div class="rd-seq-text">&#128203; Responsabilite juridique de l'educateur sportif : penale, civile, disciplinaire</div><div class="rd-seq-livrable">&#128221; Fiche synthese responsabilite</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">70% du temps — conduite autonome</div></div></div>
+        </div>
+      </div>
+
+      <!-- S42 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S42</div>
+          <div class="rd-week-month">M10 — Juin</div>
+          <div class="rd-week-title">Enseigner la progression de grades</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Redaction dossier projet</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Documentation actions — suite</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-code">S6.7</div><div class="rd-seq-text">&#129355; Enseigner la progression de grades : C.3.2.5 = competence d'ENSEIGNEMENT des grades</div><div class="rd-seq-livrable">&#128221; Programme enseignement grades</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">70% du temps — conduite autonome</div></div></div>
+        </div>
+      </div>
+
+      <!-- S43 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S43</div>
+          <div class="rd-week-month">M10 — Juin</div>
+          <div class="rd-week-title">Bilan projet BC01 — analyse reflexive</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Bilan de projet BC01 : analyse reflexive, indicateurs, preconisations</div><div class="rd-seq-livrable">&#128221; Bilan reflexif projet</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Documentation actions — finalisation</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Conduite autonome en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">70% du temps — conduite autonome</div></div></div>
+        </div>
+      </div>
+
+      <!-- S44 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S44</div>
+          <div class="rd-week-month">M10 — Juin</div>
+          <div class="rd-week-title">Tutorat renforce — visite tuteur n.3</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-alt">ALT</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Redaction dossier ecrit BC01</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Finalisation supports 2 actions</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Conduite autonome en structure</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">&#127919; Visite tuteur n.3 — grille d'observation</div><div class="rd-seq-livrable">&#128221; Grille visite tuteur n.3</div></div></div>
+        </div>
+      </div>
+
+      <!-- S45 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S45</div>
+          <div class="rd-week-month">M11 — Juil.</div>
+          <div class="rd-week-title">Finalisation dossier ecrit BC01</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Finalisation dossier ecrit BC01 (25 pages max) : structuration, relecture, mise en forme</div><div class="rd-seq-livrable">&#128221; Dossier BC01 v1</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Finalisation supports BC02 (2 actions, 2 publics)</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Simulations seances — preparation certif</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Finalisation parcours en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S46 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S46</div>
+          <div class="rd-week-month">M11 — Juil.</div>
+          <div class="rd-week-title">Finalisation supports BC02</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc02">BC02</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Relecture dossier BC01</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Finalisation supports BC02 : 2 actions, 2 publics differents</div><div class="rd-seq-livrable">&#128221; Supports BC02 complets</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Simulations seances — preparation certif</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Finalisation parcours en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S47 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S47</div>
+          <div class="rd-week-month">M11 — Juil.</div>
+          <div class="rd-week-title">Preparation intensive certification BC03</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Relecture croisee dossier BC01</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Relecture supports BC02</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Preparation intensive certification BC03 : dernieres simulations, ajustements</div><div class="rd-seq-livrable">&#128221; Derniere grille simulation</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Dernieres seances en structure</div></div></div>
+        </div>
+      </div>
+
+      <!-- S48 EF4 -->
+      <div class="rd-week milestone">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S48</div>
+          <div class="rd-week-month">M11 — Juil.</div>
+          <div class="rd-week-title">&#9670; EF4 + PRE-JURY — Relecture croisee + Simulation</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc02">BC02</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">&#127919; Relecture croisee dossier final BC01</div><div class="rd-seq-livrable">&#128221; Dossier BC01 finalise</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">&#127919; Relecture croisee supports BC02</div><div class="rd-seq-livrable">&#128221; Supports BC02 finalises</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#127919; Derniere simulation BC03 complete</div><div class="rd-seq-livrable">&#128221; Grille pre-jury BC03</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Bilan parcours alternance</div></div></div>
+        </div>
+        <div class="rd-milestone-banner">&#127919; EF4 + Pre-jury — Relecture croisee tous dossiers + Derniere simulation BC03</div>
+      </div>
+
+    </div><!-- fin P3 -->
+
+    <!-- ===================== P4 CERTIFICATION ===================== -->
+    <div class="rd-period" id="period-p4">
+      <div class="rd-period-header ph-p4">
+        <h3>P4 — Certification (M12-M14, Semaines 49 a 60)</h3>
+        <span class="ph-meta">Aout &rarr; Oct. | 12 semaines</span>
+      </div>
+
+      <!-- S49 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S49</div>
+          <div class="rd-week-month">M12 — Aout</div>
+          <div class="rd-week-title">Atelier redactionnel intensif BC01</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Atelier redactionnel intensif : argumentation, structuration, mise en forme finale</div><div class="rd-seq-livrable">&#128221; Dossier BC01 final</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Preparation orale BC02</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Revision technique — simulation jury</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">20% distanciel</div></div></div>
+        </div>
+      </div>
+
+      <!-- S50 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S50</div>
+          <div class="rd-week-month">M12 — Aout</div>
+          <div class="rd-week-title">Presentation orale posture pro + Redaction contenus</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc02">BC02</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Preparation entretien BC01</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-code">S3.5 + S3.6</div><div class="rd-seq-text">&#128203; Presentation orale posture pro + Redaction de contenus : argumentaire, pitch</div><div class="rd-seq-livrable">&#128221; Supports oral BC02 finalises</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Revision technique — simulation jury</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">20% distanciel</div></div></div>
+        </div>
+      </div>
+
+      <!-- S51 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S51</div>
+          <div class="rd-week-month">M12 — Aout</div>
+          <div class="rd-week-title">Revision technique, simulation jury</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Simulation entretien BC01 (conditions reelles)</div><div class="rd-seq-livrable">&#128221; Grille simulation oral BC01</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Simulation entretien BC02</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Revision technique, simulation jury (conditions reelles)</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">20% distanciel</div></div></div>
+        </div>
+      </div>
+
+      <!-- S52 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S52</div>
+          <div class="rd-week-month">M12 — Aout</div>
+          <div class="rd-week-title">Simulation entretiens BC01 + BC02</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc02">BC02</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Simulation entretien BC01 (BranchFlow conditions reelles)</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Simulation entretien BC02 (BranchFlow conditions reelles)</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Dernieres repetitions MSP</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">20% distanciel</div></div></div>
+        </div>
+      </div>
+
+      <!-- S53 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S53</div>
+          <div class="rd-week-month">M13 — Sept.</div>
+          <div class="rd-week-title">Dernieres repetitions, depot dossiers J-15</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc02">BC02</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Depot dossier BC01 au jury (J-15)</div><div class="rd-seq-livrable">&#128221; Dossier BC01 depose</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Depot supports BC02 au jury (J-15)</div><div class="rd-seq-livrable">&#128221; Supports BC02 deposes</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Dernieres repetitions MSP</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Preparation certification</div></div></div>
+        </div>
+      </div>
+
+      <!-- S54 CERTIF BC01 -->
+      <div class="rd-week certif-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S54</div>
+          <div class="rd-week-month">M13 — Sept.</div>
+          <div class="rd-week-title">&#9670; CERTIFICATION BC01</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-certif">CERTIF</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">&#127919; CERTIFICATION BC01 : Dossier ecrit 25 pages max + Entretien 30 min devant jury</div><div class="rd-seq-livrable">&#128221; Resultat certification BC01</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq-empty">&mdash;</div></div>
+        </div>
+        <div class="rd-certif-banner">&#127919; CERTIFICATION BC01 — Dossier ecrit 25p + Entretien oral 30 min</div>
+      </div>
+
+      <!-- S55 CERTIF BC02 -->
+      <div class="rd-week certif-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S55</div>
+          <div class="rd-week-month">M13 — Sept.</div>
+          <div class="rd-week-title">&#9670; CERTIFICATION BC02</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-certif">CERTIF</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">&#127919; CERTIFICATION BC02 : Supports 2 actions + Entretien 25 min (10 presentation + 15 echange)</div><div class="rd-seq-livrable">&#128221; Resultat certification BC02</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq-empty">&mdash;</div></div>
+        </div>
+        <div class="rd-certif-banner">&#127919; CERTIFICATION BC02 — Supports 2 actions, 2 publics + Entretien 25 min (10+15)</div>
+      </div>
+
+      <!-- S56 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S56</div>
+          <div class="rd-week-month">M13 — Sept.</div>
+          <div class="rd-week-title">Debriefing + Preparation BC03</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">Debriefing certification BC01</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">Debriefing certification BC02</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Dernieres preparations MSP BC03 : ajustements, repetitions</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Preparation certification BC03</div></div></div>
+        </div>
+      </div>
+
+      <!-- S57 -->
+      <div class="rd-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S57</div>
+          <div class="rd-week-month">M14 — Oct.</div>
+          <div class="rd-week-title">Dernieres repetitions MSP</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#129355; Dernieres repetitions MSP : conduite seance + entretien</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">Preparation certification BC03</div></div></div>
+        </div>
+      </div>
+
+      <!-- S58 CERTIF BC03 E1 -->
+      <div class="rd-week certif-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S58</div>
+          <div class="rd-week-month">M14 — Oct.</div>
+          <div class="rd-week-title">&#9670; CERTIFICATION BC03 — Epreuve 1</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-certif">CERTIF</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#127919; CERTIFICATION BC03 Epreuve 1 : Entretien conception 2 cycles de 6 seances</div><div class="rd-seq-livrable">&#128221; Resultat epreuve 1 BC03</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq-empty">&mdash;</div></div>
+        </div>
+        <div class="rd-certif-banner">&#127919; CERTIF BC03 E1 — Entretien conception 2 cycles de 6 seances</div>
+      </div>
+
+      <!-- S59 CERTIF BC03 E2 -->
+      <div class="rd-week certif-week">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S59</div>
+          <div class="rd-week-month">M14 — Oct.</div>
+          <div class="rd-week-title">&#9670; CERTIFICATION BC03 — Epreuve 2 (MSP)</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-certif">CERTIF</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq-empty">&mdash;</div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#127919; CERTIFICATION BC03 Epreuve 2 : MSP + entretien (2 evaluateurs in situ, public &#8800; stagiaires)</div><div class="rd-seq-livrable">&#128221; Resultat epreuve 2 BC03</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq-empty">&mdash;</div></div>
+        </div>
+        <div class="rd-certif-banner">&#127919; CERTIF BC03 E2 — Mise en situation professionnelle + Entretien (2 evaluateurs, public reel)</div>
+      </div>
+
+      <!-- S60 -->
+      <div class="rd-week milestone">
+        <div class="rd-week-header">
+          <div class="rd-week-num">S60</div>
+          <div class="rd-week-month">M14 — Oct.</div>
+          <div class="rd-week-title">Module insertion professionnelle + Jury final</div>
+          <div class="rd-week-tags"><span class="rd-week-tag t-bc01">BC01</span><span class="rd-week-tag t-bc02">BC02</span><span class="rd-week-tag t-bc03">BC03</span></div>
+        </div>
+        <div class="rd-week-grid">
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc01">BC01 Projet</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Module insertion pro : carte professionnelle, demarches administratives</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc02">BC02 Communication</div><div class="rd-seq"><div class="rd-seq-text">&#128203; CV, lettre de motivation, presence numerique</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-bc03">BC03 Technique/Peda</div><div class="rd-seq"><div class="rd-seq-text">&#128203; Recherche emploi educateur sportif judo</div></div></div>
+          <div class="rd-week-col"><div class="rd-week-col-title ct-alt">Alternance</div><div class="rd-seq"><div class="rd-seq-text">&#127919; Jury final — deliberation resultats</div></div></div>
+        </div>
+        <div class="rd-milestone-banner">&#127919; JURY FINAL — Deliberation et resultats BPJEPS Judo-Jujitsu RNCP40424</div>
+      </div>
+
+    </div><!-- fin P4 -->
+
+  </div><!-- fin rd-content -->
+</div><!-- fin rd-overlay -->
 
 <!-- SECTION 5 : ÉPREUVES FORMATIVES -->
 <section class="epreuves-section" id="formatives">
@@ -955,35 +2149,65 @@ document.querySelectorAll('.volume-card').forEach(function(el){barObserver.obser
 
 // Active nav link
 window.addEventListener('scroll',function(){var sections=document.querySelectorAll('section[id]');var scrollY=window.scrollY+100;sections.forEach(function(s){var top=s.offsetTop;var h=s.offsetHeight;var id=s.getAttribute('id');var link=document.querySelector('.nav-links a[href="#'+id+'"]');if(link){if(scrollY>=top&&scrollY<top+h){link.classList.add('active')}else{link.classList.remove('active')}}})});
+
+// Ruban Detail Overlay
+function openRubanDetail(){
+  var overlay=document.getElementById('rdOverlay');
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+  switchPeriod('p1',document.querySelector('.rd-tab--p1'));
+}
+function closeRubanDetail(){
+  var overlay=document.getElementById('rdOverlay');
+  overlay.classList.remove('open');
+  document.body.style.overflow='';
+}
+function switchPeriod(id,btn){
+  // Tabs
+  document.querySelectorAll('.rd-tab').forEach(function(t){t.classList.remove('active')});
+  if(btn)btn.classList.add('active');
+  // Periods
+  document.querySelectorAll('.rd-period').forEach(function(p){p.classList.remove('active')});
+  var period=document.getElementById('period-'+id);
+  if(period)period.classList.add('active');
+  // Scroll to top
+  var content=document.getElementById('rdContent');
+  if(content)content.scrollTop=0;
+  // Progress
+  var progressMap={p1:{pct:22,label:'P1 — 22%'},p2:{pct:52,label:'P2 — 52%'},p3:{pct:80,label:'P3 — 80%'},p4:{pct:100,label:'P4 — 100%'}};
+  var info=progressMap[id]||progressMap.p1;
+  var fill=document.getElementById('rdProgressFill');
+  var text=document.getElementById('rdProgressText');
+  if(fill)fill.style.width=info.pct+'%';
+  if(text)text.textContent=info.label;
+}
+// Close on Escape
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeRubanDetail()}});
 </script>
 
 <script>
-(function() {
-  var CODE = 'BPJEPS2025';
-  var page = document.getElementById('auth-page');
-  if (!page) return;
-  var urlCode = new URLSearchParams(window.location.search).get('code');
-  if (urlCode === CODE) { page.style.display = 'none'; return; }
-  document.body.style.overflow = 'hidden';
+(function(){
+  var CODE='BPJEPS2025';
+  var page=document.getElementById('auth-page');
+  if(!page)return;
+  var urlCode=new URLSearchParams(window.location.search).get('code');
+  if(urlCode===CODE){page.style.display='none';return;}
+  document.body.style.overflow='hidden';
 })();
-
-function authVerify() {
-  var input = document.getElementById('auth-code');
-  var error = document.getElementById('auth-error');
-  if (input.value === 'BPJEPS2025') {
-    document.getElementById('auth-page').style.display = 'none';
-    document.body.style.overflow = '';
-    window.history.replaceState({}, '', '?code=BPJEPS2025');
+function authVerify(){
+  var input=document.getElementById('auth-code');
+  var error=document.getElementById('auth-error');
+  if(input.value==='BPJEPS2025'){
+    document.getElementById('auth-page').style.display='none';
+    document.body.style.overflow='';
+    window.history.replaceState({},'','?code=BPJEPS2025');
   } else {
-    error.textContent = 'Code incorrect. Reessayez.';
+    error.textContent='Code incorrect. Reessayez.';
     error.classList.add('show');
-    input.value = '';
-    input.focus();
+    input.value='';input.focus();
   }
 }
-document.addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') authVerify();
-});
+document.addEventListener('keypress',function(e){if(e.key==='Enter')authVerify();});
 </script>
 </body>
 </html>
